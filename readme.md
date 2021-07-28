@@ -27,10 +27,15 @@ Stacktrace:
 
 
 
-## managing environments
+## create / update environments
 
 See julia [Pkg doc](https://docs.julialang.org/en/v1/stdlib/Pkg/)
 
+Activate an existing environment (called `project`):
+
+```
+(@v1.6) pkg> activate project
+```
 
 Create an environment (in shell mode, then pkg mode):
 ```
@@ -53,8 +58,11 @@ Add a package (in pkg mode):
 
 Or make a local copy of the library from github:
 ```
-develop --local UnderwaterAcoustics
+(@v1.6) pkg> develop --local UnderwaterAcoustics
+# or
+(@v1.6) pkg> add https://github.com/org-arl/UnderwaterAcoustics.jl#master
 ```
+
 
 List installed packages (in pkg mode):
 
@@ -70,6 +78,11 @@ Remove package:
 rm UnderwaterAcoustics
 ```
 
+If you want to run a script from the command line with a specific environment, do:
+
+```
+julia --project=path_to_project myscript.jl
+```
 
 ## Physical oceanography & acoustics
 
