@@ -98,10 +98,11 @@ Acoustics:
 
 ## other useful packages
 
-- [pluto](https://juliahub.com/docs/Pluto/OJqMt/0.7.4/). Launch Pluto with:
+- [pluto](https://juliahub.com/docs/Pluto/OJqMt/0.7.4/).
+Launch julia with `julia --project=Project` and then
+launch Pluto with:
 ```
-julia> using Pluto
-julia> Pluto.run()
+julia> using Pluto; Pluto.run()
 ```
 - [plutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.9/autodocs/)
 
@@ -110,3 +111,33 @@ julia> Pluto.run()
 ```
 add UnderwaterAcoustics Plots Pluto
 ```
+
+## launching from shell
+
+```
+julia --project=Project script.jl
+```
+
+To see figures, you need to do in the script:
+
+```
+p = plot(ssp(env))
+display(p)
+
+# maintains plot alive
+readline()
+```
+
+## dev work
+
+[julia in VS Code](https://www.julia-vscode.org/docs/stable/)
+
+Use `Command Palette` (Command-Shift-P) to start a REPL
+
+Install (from VS-Code):
+
+```
+add Plots NCDatasets
+```
+
+[NCDatasets](https://github.com/Alexander-Barth/NCDatasets.jl)
