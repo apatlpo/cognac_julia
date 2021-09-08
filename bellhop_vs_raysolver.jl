@@ -68,6 +68,18 @@ plot(env; sources=[tx], receivers=[rx1D], rays=r_bell)
 # ╔═╡ 8e50288f-b619-4e77-adfe-2878246dbfb6
 plot(env; sources=[tx], receivers=[rx1D], rays=r_ray)
 
+# ╔═╡ 369cfff2-cb60-4f2c-a77b-f3d39f9d0869
+begin
+	a_bell = arrivals(pm_bell, tx, rx1D)
+	a_ray = arrivals(pm_ray, tx, rx1D)
+end
+
+# ╔═╡ dc781240-4ca4-4e87-af82-7cc3e1c33142
+plot(abs.(impulseresponse(a_bell, 44100; reltime=true)); xlabel="Sample #", legend=false)
+
+# ╔═╡ 0a73b9ed-d473-4c0a-9c12-9e55ba9f7245
+plot(abs.(impulseresponse(a_ray, 44100; reltime=true)); xlabel="Sample #", legend=false)
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -1715,7 +1727,7 @@ version = "0.9.1+5"
 # ╔═╡ Cell order:
 # ╠═39017f88-2286-4ee9-92ae-b777a0cedbc2
 # ╠═41c9ff33-715e-4748-8bf6-e0a4aa346b49
-# ╟─d79415f1-f838-4df2-9251-6b3cc67fd4a3
+# ╠═d79415f1-f838-4df2-9251-6b3cc67fd4a3
 # ╠═7bc88cf2-e9b0-4b3e-9843-eaf2c53a1c8d
 # ╠═5a722414-451d-4ac8-9604-94d048b9b9ee
 # ╠═87354c7a-3891-4f9e-93fd-649286d306b1
@@ -1727,5 +1739,8 @@ version = "0.9.1+5"
 # ╠═a7abdfc7-41d9-48ea-a6bb-8676f49221cf
 # ╠═fc728a1a-a92e-41ee-a1a6-99078d154207
 # ╠═8e50288f-b619-4e77-adfe-2878246dbfb6
+# ╠═369cfff2-cb60-4f2c-a77b-f3d39f9d0869
+# ╠═dc781240-4ca4-4e87-af82-7cc3e1c33142
+# ╠═0a73b9ed-d473-4c0a-9c12-9e55ba9f7245
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
